@@ -14,7 +14,7 @@ function App() {
 			<TrueOrFalse />
 			<Buttons />
 			<h1 className='font-bold text-xl text-red-600 mt-10'>
-				Рома МК11 Кочур!!!
+				РОМА МК11 КОЧУР!!!
 			</h1>
 		</div>
 	)
