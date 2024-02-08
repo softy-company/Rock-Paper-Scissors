@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Buttons from './components/Buttons'
+import Computer from './components/Computer'
+import TrueOrFalse from './components/TrueOrFalse'
+import User from './components/User'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App flex items-center justify-center flex-col'>
+			<div className='view flex items-center justify-center gap-20 mb-10'>
+				<User />
+				<Computer />
+			</div>
+      <TrueOrFalse/>
+			<Buttons />
+		</div>
+	)
 }
 
-export default App;
+export default App
