@@ -6,7 +6,7 @@ import User from './components/User'
 
 function App() {
 	return (
-		<div className='App flex items-center justify-center flex-col'>
+		<div className='App flex items-center justify-center flex-col mt-7'>
 			<div className='view flex items-center justify-center gap-20 mb-10'>
 				<User />
 				<Computer />
