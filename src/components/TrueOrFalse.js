@@ -64,11 +64,14 @@ const TrueOrFalse = () => {
 	dispatch(UserCount(user))
 	dispatch(ComputerCount(computerCount))
 	if (computerCount === 10) {
-			return (
-				<div className='loading flex items-center justify-center mt-0'>
-					<img className='' src={loadingIcon} alt='' />
-				</div>
-			)
+		alert('Хаха лох ты проиграл')
+		setComputerCount(0)
+		setUser(0)
+
+	} else if (user === 10) {
+		alert('Повезло')
+		setUser(0)
+		setComputerCount(0)
     
 	}
 
