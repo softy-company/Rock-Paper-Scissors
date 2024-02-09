@@ -41,7 +41,6 @@ const Buttons = () => {
 			dispatch(setUserTool(obj[selectedTool]))
 			dispatch(ResultTrueOrFalse(selectedTool))
 
-			console.log('set ' + loading)
 		}, 500)
 	}
 	if (loading) {
@@ -51,7 +50,6 @@ const Buttons = () => {
 			</div>
 		)
 	}
-	console.log(loading)
 
 	return (
 		<div className='flex gap-4'>

@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { ComputerCount, UserCount } from '../redux/reduxToolkitSLice'
+import loadingIcon from '../img/Ellipsis-1s-92px.svg'
 
 const TrueOrFalse = () => {
 	const { computer } = useSelector(s => s.toolkit)
 	const { textValue } = useSelector(s => s.toolkit)
 	const [color, setColor] = useState('')
 	const [result, setResult] = useState('')
+	const [user, setUser] = useState(0)
+	const [computerCount, setComputerCount] = useState(0)
+	const dispatch = useDispatch()
+	// console.log(user)
 
 	useEffect(() => {
 		let newColor = ''
@@ -16,27 +22,33 @@ const TrueOrFalse = () => {
 		if (textValue === 'Rock' && text === 'Paper') {
 			newResult = 'You Lost !'
 			newColor = 'red'
+			setComputerCount(prevComputer => prevComputer + 1)
 		} else if (textValue === 'Rock' && text === 'Scissors') {
-			newResult = 'You win!'
+			newResult = 'You win !'
 			newColor = 'green'
+			setUser(prevUser => prevUser + 1)
 		} else if (textValue === 'Rock' && text === 'Rock') {
 			newResult = "It's a Tie !"
 			newColor = 'orange'
 		} else if (textValue === 'Paper' && text === 'Rock') {
 			newResult = 'You win !'
 			newColor = 'green'
+			setUser(prevUser => prevUser + 1)
 		} else if (textValue === 'Paper' && text === 'Paper') {
 			newResult = "It's a Tie !"
 			newColor = 'orange'
 		} else if (textValue === 'Paper' && text === 'Scissors') {
 			newResult = 'You Lost !'
 			newColor = 'red'
+			setComputerCount(prevComputer => prevComputer + 1)
 		} else if (textValue === 'Scissors' && text === 'Rock') {
 			newResult = 'You Lost !'
 			newColor = 'red'
+			setComputerCount(prevComputer => prevComputer + 1)
 		} else if (textValue === 'Scissors' && text === 'Paper') {
 			newResult = 'You win !'
 			newColor = 'green'
+			setUser(prevUser => prevUser + 1)
 		} else if (textValue === 'Scissors' && text === 'Scissors') {
 			newResult = "It's a Tie !"
 			newColor = 'orange'
@@ -44,10 +56,21 @@ const TrueOrFalse = () => {
 			newResult = 'Choose One !'
 			newColor = 'red'
 		}
+		console.log(user)
 
 		setColor(newColor)
 		setResult(newResult)
 	}, [computer])
+	dispatch(UserCount(user))
+	dispatch(ComputerCount(computerCount))
+	if (computerCount === 10) {
+			return (
+				<div className='loading flex items-center justify-center mt-0'>
+					<img className='' src={loadingIcon} alt='' />
+				</div>
+			)
+    
+	}
 
 	return (
 		<div>

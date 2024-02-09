@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
 	user: '',
 	computer: '',
-  textValue:''
+  textValue:'',
+  userCount: 0,
+  computerCount:0,
 }
 
 const gameSlice = createSlice({
@@ -18,9 +20,15 @@ const gameSlice = createSlice({
     },
      ResultTrueOrFalse(state, action) {
       state.textValue = action.payload
+    },
+    UserCount(state, action) {
+      state.userCount = action.payload
+    },
+     ComputerCount(state, action) {
+      state.computerCount = action.payload
     }
 	}
 })
 
-export const { setComputerTool, setUserTool, ResultTrueOrFalse } = gameSlice.actions
+export const { setComputerTool, setUserTool, ResultTrueOrFalse, UserCount, ComputerCount } = gameSlice.actions
 export default gameSlice.reducer
